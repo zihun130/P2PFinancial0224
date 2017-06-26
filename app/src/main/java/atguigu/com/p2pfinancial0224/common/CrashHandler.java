@@ -69,7 +69,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler{
             public void run() {
                 super.run();
 
-
             }
         }.start();
     }
