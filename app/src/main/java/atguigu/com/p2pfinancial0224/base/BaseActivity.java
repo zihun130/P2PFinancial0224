@@ -60,6 +60,32 @@ public abstract class BaseActivity extends AppCompatActivity {
         return loginBean;
     }
 
+
+    public void clearSp(){
+        //清除Sp文件（清除的是sp内容）
+        SharedPreferences sp = getSharedPreferences(LOGINBEAN, MODE_PRIVATE);
+        sp.edit().clear().commit();
+    }
+
+
+    public void saveImage(String image){
+        SharedPreferences sp = getSharedPreferences(LOGINBEAN, MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("imageurl",image);
+        edit.putBoolean("isFile",true);
+        edit.commit();
+    }
+
+    public String getImage(){
+        SharedPreferences sp = getSharedPreferences(LOGINBEAN, MODE_PRIVATE);
+        boolean isFile = sp.getBoolean("isFile",false);
+        if(isFile){
+            return sp.getString("imageurl","");
+        }else {
+            return "";
+        }
+    }
+
     public abstract void initListener();
 
     public abstract void initData();
