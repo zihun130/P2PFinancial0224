@@ -67,8 +67,9 @@ public class TouZiActivity extends BaseActivity {
         rightAxis.setLabelCount(5, false);
         rightAxis.setDrawGridLines(false);
 
+        LineData lineData = generateDataLine(1);
         // set data
-        chart.setData((LineData) generateDataLine(1));
+        chart.setData(lineData);
 
         // do not forget to refresh the chart
         // chart.invalidate();
